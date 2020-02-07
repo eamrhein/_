@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {useSelector} from 'react-redux';
 import styled from 'styled-components';
 import { Route, Redirect } from 'react-router-dom';
@@ -20,16 +20,16 @@ const AppStyle = styled.div`
         color:${props => props.theme.colors.font};
     }
     background-color: ${props => props.theme.colors.background};
-    min-height: 100vh;
+	height: 100vh;
+	overflow: hidden;
+	flex-flow: column;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     font-size: calc(9pt + 0.5vmin);
     color: ${props => props.theme.colors.font};
     
 `;
 
-function App() {
+function App(props) {
 	const session = useSelector( 
 		state => state.session,
 	);
